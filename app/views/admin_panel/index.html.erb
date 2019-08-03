@@ -1,0 +1,64 @@
+<h1>Admin Panel</h1>
+<h2>Add new partner</h2>
+
+<%= form_with(model: @partner, local: true) do |form| %>
+  <% if @partner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this partner from being saved:</h2>
+
+      <ul>
+        <% @partner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :appellation %>
+    <%= form.text_field :appellation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.text_field :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<h2>Partners</h2>
+
+<table align="center">
+  <thead>
+  <tr>
+    <th>Appellation</th>
+    <th>Email</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @partners.each do |partner| %>
+    <tr>
+      <td><%= partner.appellation %></td>
+      <td><%= partner.email %></td>
+      <td><%= link_to 'Destroy', partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+

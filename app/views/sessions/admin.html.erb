@@ -1,2 +1,9 @@
-<h1>Session#admin</h1>
+<h1>Sign in to your Admin Account</h1>
 <p>Find me in app/views/session/admin.html.erb</p>
+
+<%= form_for :data, url: sessions_url do |f| %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.hidden_field :type, value: 'admin'  %>
+  <%= f.submit "Login" %>
+<% end %>

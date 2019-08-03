@@ -3,15 +3,15 @@ class ApplicationController < ActionController::Base
   helper_method [:user?, :partner?, :admin?, :current_user]
 
   def user?
-    session[:type] == 'user'
+    session[:type] === 'user'
   end
 
   def partner?
-    session[:type] == 'partner'
+    session[:type] === 'partner'
   end
 
   def admin?
-    session[:type] == 'admin'
+    session[:type] === 'admin'
   end
 
   def current_user
