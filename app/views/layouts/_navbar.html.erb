@@ -1,0 +1,23 @@
+<ul class="topnav">
+  <li><%= link_to "Home", root_path %></li>
+  <% if session[:type] %>
+    <li class="right"><%= link_to "Logout", session_path(1), method: :delete %></li>
+    <% else %>
+    <li class="right" ><%= link_to "Register", new_user_path %></li>
+  <% end %>
+  <li class="right" >
+  <% if user? %>
+    <%= link_to "User Panel", user_panel_path %>
+  <% elsif partner? %>
+    <%= link_to "Partner Panel", partner_panel_path %>
+  <% elsif admin? %>
+    <%= link_to "Admin Panel", admin_panel_path %>
+  <% else %>
+
+  <% end %>
+  </li>
+
+</ul>
+
+
+

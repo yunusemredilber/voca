@@ -1,0 +1,27 @@
+<h1>User Panel</h1>
+<% if current_user.active %>
+   <p>You have access !</p>
+  <%= form_for :data, url: pins_url do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id  %>
+    <%= f.submit "Request Pin!" %>
+  <% end %>
+  <%= current_user.pin.code %>
+<% else %>
+  <h2>You need to wait a little bit more :( </h2>
+  <h3>Your current votes </h3>
+  <table align="center">
+    <thead>
+    <tr>
+      <th>Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% current_user.votes.each do |vote| %>
+      <tr>
+        <td><%= vote.status %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
