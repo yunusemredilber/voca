@@ -1,6 +1,14 @@
 <h1>Welcome To Hackerspace</h1>
-<h2>Register now to access all! </h2>
-<%= link_to "Register", new_user_path %>
-<p>
-  Now you are signed as <strong> <%= user? ? 'user':'' %><%= partner? ? 'partner':'' %><%= admin? ? 'admin':'' %> </strong>
-</p>
+
+
+<% if session[:type] %>
+  <%= link_to "Logout", session_path(1), method: :delete %>
+<% else %>
+  <h2>Register now to access all! </h2>
+  <%= link_to "Register", new_user_path %>
+  <%= link_to "Sign in as admin", sessions_admin_path %>
+  <%= link_to "Sign in as user", sessions_user_path %>
+  <%= link_to "Sign in as partner", sessions_partner_path %>
+<% end %>
+
+

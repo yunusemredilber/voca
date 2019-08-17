@@ -1,0 +1,2 @@
+module PartnerPanelHelper
+end
