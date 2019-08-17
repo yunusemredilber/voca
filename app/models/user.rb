@@ -10,6 +10,6 @@ class User < ApplicationRecord
   private
 
   def set_status
-    self.status = false unless status
+    self.active = false unless active
   end
 end
