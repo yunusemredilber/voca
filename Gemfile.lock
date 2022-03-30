@@ -107,7 +107,8 @@ GEM
       racc (~> 1.4)
     pg (1.1.4)
     public_suffix (3.1.1)
-    puma (3.12.6)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -211,7 +212,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 6.0.0.rc2)
   sass-rails (~> 5)
   selenium-webdriver
